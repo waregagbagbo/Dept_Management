@@ -9,7 +9,7 @@ class CustomUserManager(BaseUserManager):
     Args:
         BaseUserManager (_type_): _description_
     """
-    def create_user(self, email,password, **extra_fields):
+    def create_user(self,email,password, **extra_fields):
         """_summary_
         create and save a user with email and password
 
@@ -27,7 +27,7 @@ class CustomUserManager(BaseUserManager):
         return user
     
     
-    def create_superuser(self, email, password, **extra_fields):
+    def create_superuser(self,email,password, **extra_fields):
         """_summary_
 
         Args:
@@ -40,9 +40,9 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault("is_active",True)
         
         if extra_fields.get("is_staff") is not True:
-            raise ValueError(_("Superuser must have is_staff=True."))
+            raise ValueError("Superuser must have is_staff=True.")
         
         if extra_fields.get("is_superuser") is not True:
             raise ValueError(_("Superuser must have is_superuser = True"))
         
-        return self.create_user(email, password, **extra_fields)
+        return self.create_user(email,password, **extra_fields)

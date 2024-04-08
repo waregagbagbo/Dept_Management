@@ -14,7 +14,6 @@ class CustomUser(AbstractUser):
     Args:
         AbstractUser (_type_): _description_
     """
-    username = None
     email = models.EmailField(_('email_address'), unique =True)
     
     USERNAME_FIELD = "email"
@@ -23,9 +22,9 @@ class CustomUser(AbstractUser):
     """
     This line specifies that all objects for the class come from the CustomUserManager
     """
-    objects = CustomUserManager
+    objects = CustomUserManager()
     
     
     def __str__(self):
-        return self.email
+        return "{}".format(self.email)
     
